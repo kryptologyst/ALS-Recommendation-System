@@ -1,0 +1,59 @@
+# Model configurations
+models:
+  als:
+    n_factors: 50
+    regularization: 0.01
+    iterations: 15
+    alpha: 40.0
+    random_state: 42
+  
+  popularity:
+    random_state: 42
+  
+  user_knn:
+    k: 50
+    metric: "cosine"
+    random_state: 42
+  
+  item_knn:
+    k: 50
+    metric: "cosine"
+    random_state: 42
+
+# Data configuration
+data:
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  split_method: "chronological"  # or "random"
+  
+  # Synthetic data generation
+  synthetic:
+    n_users: 1000
+    n_items: 500
+    n_interactions: 10000
+    sparsity: 0.95
+    seed: 42
+
+# Evaluation configuration
+evaluation:
+  k_values: [5, 10, 20]
+  metrics:
+    - "precision"
+    - "recall"
+    - "ndcg"
+    - "map"
+    - "hit_rate"
+    - "coverage"
+    - "diversity"
+
+# Training configuration
+training:
+  random_state: 42
+  verbose: true
+  
+# Demo configuration
+demo:
+  n_recommendations: 10
+  n_similar_items: 5
+  port: 8501
